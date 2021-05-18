@@ -5,18 +5,18 @@ Running red light
 Slowly rear ends
 Mustang
 Brake check
-Conitnually blocking driver
+Continually blocking driver
 Reading license plate
-Camera makes noise on start
-Driver says Dash cam start recording
+Camera makes noise
+Voice-activated dash cam
 Tire blow out
 Thing falls out of trailer
 Hydro plane
 Icy conditions
 Chasing another driver
 Police
-Low quality cam / Cam positioned incorrectly
-Super high tech cam interface
+Low quality camera
+Super high tech camera interface
 High quality Camera (high res / fps)
 U turn crash
 Doesnt match description
@@ -35,7 +35,7 @@ Box car
 El Camino
 Sheet Metal on roof
 Aggressive overtaking
-Parking Crash
+Parking lot Crash
 Head-on Collision
 Swerving Randomly
 Elderly Driver
@@ -43,10 +43,17 @@ Driver runs off
 Multi camera view
 Car gets absolutely destroyed
 Three car combo (1 car hits multiple)
-Driving on wrong side
 Doughnuts / burnouts
 Cars kissing (Front to Front / Back to back)
 Junk on roof
 Obscene gesture
 Reverses into another car
 Wrong way driver
+Debris in road
+Roundabot
+Trying to beat the light
+Near miss
+Rogue tire
+Flying car
+Car squeezes in
+Fire
