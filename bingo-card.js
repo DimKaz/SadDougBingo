@@ -1,66 +1,9 @@
 window.onload = initAll;
 var boardSelect = new Array (25);
 var usedNums = new Array(1000);
-var csvData = new Array(
-"Mentions dash cam to another person",
-"Multiple lane merge",
-"Red circle drawn",
-"Running red light",
-"Slowly rear ends",
-"Mustang",
-"Brake check",
-"Continually blocking driver",
-"Reading license plate",
-"Camera makes noise",
-"Voice-activated dash cam",
-"Tire blow out",
-"Thing falls out of trailer",
-"Hydro plane",
-"Icy conditions",
-"Chasing another driver",
-"Police",
-"Low quality camera",
-"Super high tech camera interface",
-"High quality Camera (high res / fps)",
-"U turn crash",
-"Doesnt match description",
-"Crash isn't obvious",
-"Camper incidents",
-"Passenger screaming",
-"Bicyclist involved",
-"Left turn on red",
-"False start (Starts driving too early)",
-"Talking on phone",
-"Loud music / radio",
-"Crashes into building",
-"Bus involved",
-"Deserted road (The only car on the road)",
-"Box car",
-"El Camino",
-"Sheet Metal on roof",
-"Aggressive overtaking",
-"Parking lot Crash",
-"Head-on Collision",
-"Swerving Randomly",
-"Elderly Driver",
-"Driver runs off",
-"Multi camera view",
-"Car gets absolutely destroyed",
-"Three car combo (1 car hits multiple)",
-"Doughnuts / burnouts",
-"Cars kissing (Front to Front / Back to back)",
-"Junk on roof",
-"Obscene gesture",
-"Reverses into another car",
-"Wrong way driver",
-"Debris in road",
-"Roundabot",
-"Trying to beat the light",
-"Near miss",
-"Rogue tire",
-"Flying car",
-"Car squeezes in",
-"Fire");
+var choices = new Array;
+//needs to be one choice per line
+var choiceTxtFile = 'Bingo_choices_bare.txt';
 
 var unselected = "lightgrey";
 var selected = "green";
@@ -68,15 +11,7 @@ var bingo = false;
 var col = new Array(5);
 var row = new Array(5);
 
-//function rainbowColors(){
-//    for(var i = 0; i < 25; i++){
-//        if( boardSelect[i]){
-//            document.getElementById("square" + (i)).style.backgroundColor = rgb(Math.random()*255, Math.random()*255, Math.random()*255);
-//        }
-//    }
-//}
-
-function initAll() {
+async function initAll() {
   if (document.getElementById) {
     document.getElementById("reload").onclick = anotherCard;
     
@@ -91,8 +26,11 @@ function initAll() {
             document.getElementById("square" + 12).setAttribute("board_id", 12);
         }
     }
-    newCard();
-  }
+
+    //need to await the promise before we move on
+    await readTextFile(choiceTxtFile);
+     newCard();
+  }  
   else{
     alert("Your browser does not support this script.");
   }
@@ -125,7 +63,7 @@ function setSquare(thisSquare){
     
     usedNums[newNum] = true;
     var element = document.getElementById(currentSquare)
-    element.innerHTML = csvData[newNum];
+    element.innerHTML = choices[newNum];
     element.style.backgroundColor = unselected;
 
 };
@@ -217,10 +155,28 @@ function setOnClick(element){
 }
 
 function getNewNum() {
-    return Math.floor(Math.random() * csvData.length);
+  return Math.floor(Math.random() * choices.length);
 }
 
 function anotherCard() {
-    newCard();
-    return false;
+  newCard();
+  return false;
+}
+
+//reads in the text file, splits it and then adds results to choices array
+async function readTextFile(file){
+
+ const options = {
+        headers: new Headers({"Content-Type": "text/plain"})
+    };
+    //Note: fetch is aysnc so we need to return the promise so it stays sync
+    return fetch(file, options)
+      .then(response => response.text())
+      .then(data => {
+        choicesText = data.split("\r\n");
+        choicesText.forEach(function(item, index, array) {
+            choices.push(item);
+           
+        })
+      });
 }
