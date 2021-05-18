@@ -1,0 +1,47 @@
+body {
+    background-color: white;
+    background-image: url("traffic.jpg");
+    color: black;
+    font-size: 24px;
+    font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+    user-select: none;
+}
+.boxed {
+  border: 1px solid green ;
+  background-color: lightgrey;
+  display: inline;
+}
+span {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: white;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+table {
+	border-collapse: collapse;
+	background-color: lightgrey;
+}
+
+th {
+	padding: 5px;
+	border: 4px black solid;
+	text-align: center;
+	font-size: 24px;
+	background-color: #A4A4A4;
+}
+
+td {
+	padding: 5px;
+	border: 4px black solid;
+	text-align: center;
+	font-size: 24px;
+}
+
+#free {
+	background-color: green;
+}
+
+
